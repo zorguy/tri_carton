@@ -1,0 +1,30 @@
+#ifndef COFFRE_H
+#define COFFRE_H
+
+#include "carton.h"
+#include <QVector>
+#include <iostream>
+
+
+class Coffre
+{
+private:
+    int x;
+    int y;
+    int size;
+    QVector<QVector<int>*> dansLeCoffre;
+    bool tenterPoserCarton(Carton* c, int origineCoffreX, int origineCoffreY);
+    bool poserCarton(Carton*c, bool transp, int origineCoffreX, int origineCoffreY);
+
+public:
+    Coffre(int x, int y);
+    int getX();
+    int getY();
+    int getSize();
+    //algo de rangement dans ranger
+    //(+ les sous-routines poserCarton et tenterPoserCarton)
+    void ranger(QVector<Carton*> list);
+    void toString(); //dessin ascii du coffre avec les cartons dedans
+};
+
+#endif // COFFRE_H
